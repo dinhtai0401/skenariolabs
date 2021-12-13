@@ -1,12 +1,19 @@
-import React from 'react';
-import Banner from '../../../../components/Banner';
+import Banner from "components/Banner";
+import BuildingForm from "features/Building/components/BuildingForm";
+import React from "react";
 
-import './styles.scss';
+import "./styles.scss";
 
 function AddEditPage(props) {
   return (
     <div className="add-edit">
-        <Banner title="Have a nice day 😎" />
+      <Banner title="Add new buildings 😎" />
+
+      <div className="add-edit__form">
+        <BuildingForm
+          onSubmit={(values) => console.log("Form submit: ", values)}
+        />
+      </div>
     </div>
   );
 }

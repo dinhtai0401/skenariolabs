@@ -1,21 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Col, Container, Row } from "reactstrap";
-import "./Header.scss"
+import "./Header.scss";
 
 function Header(props) {
   return (
     <header className="header">
       <Container>
-        <Row>
+        <Row className="justify-content-between">
           <Col xs="auto">
             <a
-              className="header__link header__title"
+              className="header__link"
               href="https://www.skenariolabs.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className="header__image" src="https://www.skenariolabs.com/images/logo.png" alt="logoskenariolabs" />
+              <img
+                className="header__image"
+                src="https://www.skenariolabs.com/images/logo.png"
+                alt="logoskenariolabs"
+              />
             </a>
+          </Col>
+
+          <Col xs="auto">
+            <Link to="/" className="header__link header__title" activeClassName="header__link--active">Buidling</Link>
           </Col>
         </Row>
       </Container>

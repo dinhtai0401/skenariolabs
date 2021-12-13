@@ -10,8 +10,8 @@ function Building(props) {
     <Routes>
       <Route exact path="" element={<MainPage />} />
 
-      <Route path="add" component={AddEditPage} />
-      <Route path=":buildingId" component={AddEditPage} />
+      <Route path="add" element={<AddEditPage />} />
+      <Route path=":buildingId" element={<AddEditPage />} />
 
       <Route component={NotFound} />
     </Routes>
