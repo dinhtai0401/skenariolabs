@@ -1,6 +1,7 @@
 import Coordinate from "components/Coordinate";
+import { ErrorMessage } from "formik";
 import React from "react";
-import { FormGroup, Input, Label } from "reactstrap";
+import { FormFeedback, FormGroup, Input, Label } from "reactstrap";
 
 function CoordinateField(props) {
   const { field, form, label } = props;
@@ -22,6 +23,13 @@ function CoordinateField(props) {
           coordinate={value}
           onCoordinateChange={handleCoordinateChange}
           onCoordinateButtonBlur={onBlur}
+        />
+
+        <div className={showError ? "is-invalid" : ""}/>
+        <ErrorMessage
+          className="invalid-feedback d-block"
+          name={name}
+          component={FormFeedback}
         />
       </FormGroup>
     </div>

@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import "./App.scss";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
@@ -13,8 +13,8 @@ function App() {
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route exact path="*" element={<Building />} />
-            <Route component={NotFound} />
+            <Route path="*" element={<Building />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </Suspense>

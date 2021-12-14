@@ -3,6 +3,7 @@ import InputField from "custom-fields/InputField";
 import { FastField, Form, Formik } from "formik";
 import React from "react";
 import { Button, FormGroup } from "reactstrap";
+import * as Yup from "yup";
 
 function BuildingForm(props) {
   const initialValues = {
@@ -16,13 +17,26 @@ function BuildingForm(props) {
     description: "",
     coordinate: [],
   };
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("This field is required"),
+    street: Yup.string().required("This field is required"),
+    number: Yup.string().required("This field is required"),
+    code: Yup.string().required("This field is required"),
+    city: Yup.string().required("This field is required"),
+    country: Yup.string().required("This field is required"),
+    coordinate: Yup.array().min(1),
+  });
+
   return (
-    <Formik initialValues={initialValues}
-    onSubmit={values => console.log('Submit: ', values)}
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={(values) => console.log("Submit: ", values)}
     >
       {(formikProps) => {
         const { values, errors, touched } = formikProps;
-        console.log({values, errors, touched});
+        console.log({ values, errors, touched });
 
         return (
           <Form>
@@ -43,12 +57,14 @@ function BuildingForm(props) {
               component={InputField}
               label="Number"
               placeholder="Number"
+              type="number"
             ></FastField>
             <FastField
               name="code"
               component={InputField}
               label="Postal code"
               placeholder="Postal code"
+              type="number"
             ></FastField>
             <FastField
               name="city"
@@ -82,7 +98,9 @@ function BuildingForm(props) {
               placeholder="Coordinate"
             ></FastField>
             <FormGroup>
-              <Button color="primary" type="submit">Submit</Button>
+              <Button color="primary" type="submit">
+                Submit
+              </Button>
             </FormGroup>
           </Form>
         );
