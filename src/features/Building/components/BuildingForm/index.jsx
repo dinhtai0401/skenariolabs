@@ -2,7 +2,7 @@ import CoordinateField from "custom-fields/CoordinateField";
 import InputField from "custom-fields/InputField";
 import { FastField, Form, Formik } from "formik";
 import React from "react";
-import { Button, FormGroup } from "reactstrap";
+import { Button, FormGroup, Spinner } from "reactstrap";
 import * as Yup from "yup";
 
 function BuildingForm(props) {
@@ -32,10 +32,10 @@ function BuildingForm(props) {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => console.log("Submit: ", values)}
+      onSubmit={props.onSubmit}
     >
       {(formikProps) => {
-        const { values, errors, touched } = formikProps;
+        const { values, errors, touched, isSubmitting } = formikProps;
         console.log({ values, errors, touched });
 
         return (
@@ -45,60 +45,70 @@ function BuildingForm(props) {
               component={InputField}
               label="Name of the building"
               placeholder="Name of the building"
-            ></FastField>
+            />
+
             <FastField
               name="street"
               component={InputField}
               label="Street"
               placeholder="Street"
-            ></FastField>
+            />
+
             <FastField
               name="number"
               component={InputField}
               label="Number"
               placeholder="Number"
               type="number"
-            ></FastField>
+            />
+
             <FastField
               name="code"
               component={InputField}
               label="Postal code"
               placeholder="Postal code"
               type="number"
-            ></FastField>
+            />
+
             <FastField
               name="city"
               component={InputField}
               label="City"
               placeholder="City"
-            ></FastField>
+            />
+
             <FastField
               name="municipality"
               component={InputField}
               label="Manicipality"
               placeholder="Manicipality"
-            ></FastField>
+            />
+
             <FastField
               name="country"
               component={InputField}
               label="Country"
               placeholder="Country"
-            ></FastField>
+            />
+
             <FastField
               name="description"
               component={InputField}
               label="Description"
               placeholder="Description"
               type="textarea"
-            ></FastField>
+            />
+
             <FastField
               name="coordinate"
               component={CoordinateField}
               label="Coordinate"
               placeholder="Coordinate"
-            ></FastField>
+            />
+
             <FormGroup>
               <Button color="primary" type="submit">
+                {isSubmitting && <Spinner size="sm" />}
                 Submit
               </Button>
             </FormGroup>

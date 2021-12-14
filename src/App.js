@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import "./App.scss";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
@@ -12,10 +12,12 @@ function App() {
       <Suspense fallback={<div>Loading ...</div>}>
         <BrowserRouter>
           <Header />
-          <Routes>
-            <Route path="*" element={<Building />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Switch>
+            <Redirect exact from="/" to="/building" />
+
+            <Route path="/building" component={Building} />
+            <Route component={NotFound} />
+          </Switch>
         </BrowserRouter>
       </Suspense>
     </div>
