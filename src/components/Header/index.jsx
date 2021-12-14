@@ -23,8 +23,8 @@ function Header(props) {
             </a>
           </Col>
 
-          <Col xs="auto">
-            <Link to="/" className="header__link header__title" activeClassName="header__link--active">Buidling</Link>
+          <Col xs="auto" className="header__second">
+            <Link to="/" className="header__link header__title" activeclassname="header__link--active">Buidling</Link>
           </Col>
         </Row>
       </Container>

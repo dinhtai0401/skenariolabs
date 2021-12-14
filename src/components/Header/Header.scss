@@ -3,9 +3,12 @@
   font-size: 1.25rem;
   background-color: green;
 
+  &__second {
+    margin-top: 10px;
+  }
+
   &__title {
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 20px;
   }
 
   &__link {
