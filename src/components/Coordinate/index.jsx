@@ -12,10 +12,7 @@ function Coordinate(props) {
   const handleGetCoordinate = async () => {
     const values = getIn(props.formik.values);
     let searchCoordinate = `${values.name} ${values.street} ${values.number} ${values.city} ${values.code} ${values.country} ${values.municipality}`;
-    if (
-      searchCoordinate.indexOf("undefined") === -1 &&
-      searchCoordinate.replace(/\s/g, "").length
-    ) {
+    if (searchCoordinate.replace(/\s/g, "").length) {
       axios
         .get(
           `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchCoordinate}.json?access_token=pk.eyJ1IjoiZXJrYW5pc3VmIiwiYSI6ImNrcGZxaHRmNjI0N3UycmxsbWg1Zmt0YXQifQ.tbQo15ubXKR028W_UT5Ibw`

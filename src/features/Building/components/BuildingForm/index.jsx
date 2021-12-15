@@ -15,7 +15,7 @@ function BuildingForm(props) {
     municipality: "",
     country: "",
     description: "",
-    coordinate: [],
+    coordinate: "",
   };
 
   const validationSchema = Yup.object().shape({
