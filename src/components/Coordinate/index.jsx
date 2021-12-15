@@ -1,4 +1,5 @@
 import axios from "axios";
+import key from "constants/accessToken.json";
 import { connect, getIn } from "formik";
 import React from "react";
 import { FaSearchLocation } from "react-icons/fa";
@@ -15,7 +16,7 @@ function Coordinate(props) {
     if (searchCoordinate.replace(/\s/g, "").length) {
       axios
         .get(
-          `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchCoordinate}.json?access_token=pk.eyJ1IjoiZXJrYW5pc3VmIiwiYSI6ImNrcGZxaHRmNjI0N3UycmxsbWg1Zmt0YXQifQ.tbQo15ubXKR028W_UT5Ibw`
+          `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchCoordinate}.json?access_token=${key.access_token}`
         )
         .then((response) => {
           onCoordinateChange(response.data.features[0].center);

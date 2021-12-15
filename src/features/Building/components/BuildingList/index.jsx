@@ -1,9 +1,10 @@
+import key from "constants/accessToken.json";
 import React, { useState } from "react";
 import { BsBuilding } from "react-icons/bs";
 import ReactMapGL, { Marker } from "react-map-gl";
 import { Button } from "reactstrap";
 import BuildingDetail from "../BuildingDetail";
-import "./styles.scss"
+import "./styles.scss";
 
 function BuildingList(props) {
   const { buildingList, onBuildingRemoveClick, onBuildingEditClick } = props;
@@ -23,7 +24,7 @@ function BuildingList(props) {
       {...viewport}
       mapStyle="mapbox://styles/mapbox/streets-v11"
       onViewportChange={(viewport) => setViewport(viewport)}
-      mapboxApiAccessToken="pk.eyJ1IjoiZXJrYW5pc3VmIiwiYSI6ImNrcGZxaHRmNjI0N3UycmxsbWg1Zmt0YXQifQ.tbQo15ubXKR028W_UT5Ibw"
+      mapboxApiAccessToken={key.access_token}
     >
       {buildingList?.map((building) => (
         <div key={building.id}>
