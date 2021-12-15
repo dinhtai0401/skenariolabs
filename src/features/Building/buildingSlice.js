@@ -1,21 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialStates = [
+  {
+    id: 1,
+    name: "test",
+    street: "test",
+    number: "test",
+    code: "test",
+    city: "test",
+    municipality: "test",
+    country: "test",
+    description: "test",
+    coordinate: [25.521308, 65.012369],
+  },
+];
+
 const building = createSlice({
   name: "buildings",
-  initialState: [
-    {
-      id: 1,
-      name: "test",
-      street: "test",
-      number: "test",
-      code: "test",
-      city: "test",
-      municipality: "test",
-      country: "test",
-      description: "test",
-      coordinate: [25.521308, 65.012369],
-    },
-  ],
+  initialState: initialStates,
   reducers: {
     addBuilding: (state, action) => {
       state.push(action.payload);

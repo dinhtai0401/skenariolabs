@@ -6,7 +6,7 @@ import { Button, FormGroup, Spinner } from "reactstrap";
 import * as Yup from "yup";
 
 function BuildingForm(props) {
-  const {initialValues, isAddMode} = props;
+  const { initialValues, isAddMode } = props;
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("This field is required"),
@@ -25,7 +25,7 @@ function BuildingForm(props) {
       onSubmit={props.onSubmit}
     >
       {(formikProps) => {
-        const {isSubmitting } = formikProps;
+        const { isSubmitting } = formikProps;
 
         return (
           <Form>

@@ -4,14 +4,8 @@ import { Button } from "reactstrap";
 import "./styles.scss";
 
 function BuildingDetail(props) {
-  const {
-    togglePopup,
-    showPopup,
-    onRemoveClick,
-    onEditClick,
-    selectedBuilding,
-    setSelectedBuilding,
-  } = props;
+  const { onRemoveClick, onEditClick, selectedBuilding, setSelectedBuilding } =
+    props;
 
   const handleRemoveClick = () => {
     if (onRemoveClick) onRemoveClick(selectedBuilding);
@@ -23,22 +17,19 @@ function BuildingDetail(props) {
 
   return (
     <div>
-      {showPopup && (
+      {selectedBuilding && (
         <Popup
           className="building-detail"
           latitude={selectedBuilding.coordinate[1]}
           longitude={selectedBuilding.coordinate[0]}
           closeButton={true}
           closeOnClick={true}
-          onClose={() => {
-            togglePopup(false);
-            setSelectedBuilding(null);
-          }}
+          onClose={() => setSelectedBuilding(null)}
           anchor="top-right"
         >
           <div className="building-detail__overlay">
             <p>
-              {selectedBuilding.coordinate[0]} {selectedBuilding.coordinate[1]}
+              {`${selectedBuilding.coordinate[0]} - ${selectedBuilding.coordinate[1]}`}
             </p>
             <p>Name of the building: {selectedBuilding.name}</p>
             <p>Street: {selectedBuilding.street}</p>

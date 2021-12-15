@@ -3,6 +3,7 @@ import { BsBuilding } from "react-icons/bs";
 import ReactMapGL, { Marker } from "react-map-gl";
 import { Button } from "reactstrap";
 import BuildingDetail from "../BuildingDetail";
+import "./styles.scss"
 
 function BuildingList(props) {
   const { buildingList, onBuildingRemoveClick, onBuildingEditClick } = props;
@@ -13,7 +14,6 @@ function BuildingList(props) {
     zoom: 12,
   });
 
-  const [showPopup, togglePopup] = useState(false);
   const [selectedBuilding, setSelectedBuilding] = useState(null);
 
   return (
@@ -27,16 +27,14 @@ function BuildingList(props) {
     >
       {buildingList?.map((building) => (
         <div key={building.id}>
-          {showPopup && (
+          {
             <BuildingDetail
-              showPopup={showPopup}
-              togglePopup={togglePopup}
               onRemoveClick={onBuildingRemoveClick}
               onEditClick={onBuildingEditClick}
               selectedBuilding={selectedBuilding}
               setSelectedBuilding={setSelectedBuilding}
             />
-          )}
+          }
           <Marker
             key={building.id}
             latitude={building.coordinate[1]}
@@ -45,14 +43,10 @@ function BuildingList(props) {
             offsetTop={-10}
           >
             <Button
-              className="marker-btn"
-              style={{ backgroundColor: "white" }}
-              onClick={() => {
-                togglePopup(true);
-                setSelectedBuilding(building);
-              }}
+              className="buiding-list__marker-btn"
+              onClick={() => setSelectedBuilding(building)}
             >
-              <BsBuilding style={{ backgroundColor: "black" }} />
+              <BsBuilding className="buiding-list__icon" />
             </Button>
           </Marker>
         </div>
