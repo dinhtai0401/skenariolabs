@@ -25,8 +25,7 @@ function BuildingForm(props) {
       onSubmit={props.onSubmit}
     >
       {(formikProps) => {
-        const { values, errors, touched, isSubmitting } = formikProps;
-        console.log({ values, errors, touched });
+        const {isSubmitting } = formikProps;
 
         return (
           <Form>
@@ -97,7 +96,7 @@ function BuildingForm(props) {
             />
 
             <FormGroup>
-              <Button color="primary" type="submit" color={isAddMode ? "primary" : "success"}>
+              <Button type="submit" color={isAddMode ? "primary" : "success"}>
                 {isSubmitting && <Spinner size="sm" />}
                 {isAddMode ? "Submit" : "Update your building"}
               </Button>

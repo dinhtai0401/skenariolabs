@@ -1,7 +1,7 @@
 import Coordinate from "components/Coordinate";
 import { ErrorMessage } from "formik";
 import React from "react";
-import { FormFeedback, FormGroup, Input, Label } from "reactstrap";
+import { FormFeedback, FormGroup, Label } from "reactstrap";
 
 function CoordinateField(props) {
   const { field, form, label } = props;

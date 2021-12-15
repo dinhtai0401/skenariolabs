@@ -41,17 +41,17 @@ function AddEditPage(props) {
             ...values,
             id: randomNumber(10000, 99999),
           };
-          const action = addBuilding(values);
+          const action = addBuilding(newBuilding);
           console.log(action);
           dispatch(action);
 
           resolve(true);
-          return;
         } else {
           const action = updateBuilding(values);
           dispatch(action);
         }
         history.push("/building");
+        return;
       }, 2000);
     });
   };

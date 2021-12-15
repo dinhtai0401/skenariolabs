@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Row, Col, Button } from "reactstrap";
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { BsBuilding } from "react-icons/bs";
+import ReactMapGL, { Marker } from "react-map-gl";
+import { Button } from "reactstrap";
 import BuildingDetail from "../BuildingDetail";
 
 function BuildingList(props) {
@@ -14,6 +14,7 @@ function BuildingList(props) {
   });
 
   const [showPopup, togglePopup] = useState(false);
+  const [selectedBuilding, setSelectedBuilding] = useState(null);
 
   return (
     <ReactMapGL
@@ -25,18 +26,33 @@ function BuildingList(props) {
       mapboxApiAccessToken="pk.eyJ1IjoiZXJrYW5pc3VmIiwiYSI6ImNrcGZxaHRmNjI0N3UycmxsbWg1Zmt0YXQifQ.tbQo15ubXKR028W_UT5Ibw"
     >
       {buildingList?.map((building) => (
-        <div>
+        <div key={building.id}>
           {showPopup && (
-            <BuildingDetail building={building} showPopup={showPopup} togglePopup={togglePopup} onRemoveClick={onBuildingRemoveClick} onEditClick={onBuildingEditClick} />
+            <BuildingDetail
+              showPopup={showPopup}
+              togglePopup={togglePopup}
+              onRemoveClick={onBuildingRemoveClick}
+              onEditClick={onBuildingEditClick}
+              selectedBuilding={selectedBuilding}
+              setSelectedBuilding={setSelectedBuilding}
+            />
           )}
           <Marker
+            key={building.id}
             latitude={building.coordinate[1]}
             longitude={building.coordinate[0]}
             offsetLeft={-20}
             offsetTop={-10}
           >
-            <Button className="marker-btn" style={{ backgroundColor: "white"}} onClick={() => togglePopup(true)}>
-              <BsBuilding style={{ backgroundColor: "black"}} />
+            <Button
+              className="marker-btn"
+              style={{ backgroundColor: "white" }}
+              onClick={() => {
+                togglePopup(true);
+                setSelectedBuilding(building);
+              }}
+            >
+              <BsBuilding style={{ backgroundColor: "black" }} />
             </Button>
           </Marker>
         </div>
