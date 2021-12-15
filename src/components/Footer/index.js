@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Col, Container, Row } from "reactstrap";
-import "./Header.scss";
+import "./Footer.scss";
 
 function Header(props) {
   return (
-    <footer className="header">
+    <header className="header">
       <Container>
         <Row className="justify-content-between">
           <Col xs="auto">
@@ -28,7 +28,7 @@ function Header(props) {
           </Col>
         </Row>
       </Container>
-    </footer>
+    </header>
   );
 }
 

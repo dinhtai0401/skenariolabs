@@ -4,17 +4,19 @@ import { removeBuilding } from "features/Building/buildingSlice";
 import BuildingList from "features/Building/components/BuildingList";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Button, Container } from "reactstrap";
 import "./styles.scss";
 
 function MainPage(props) {
   const dispatch = useDispatch();
   const buildings = useSelector((state) => state.buildings);
-  console.log(buildings);
+  const history = useHistory();
 
   const handleBuildingEditClick = (building) => {
     console.log("Edit", building);
+    const editBuilding = `/building/${building.id}`;
+    history.push(editBuilding)
   };
 
   const handleBuildingRemoveClick = (building) => {

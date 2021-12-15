@@ -1,0 +1,31 @@
+.header {
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    background-color: green;
+  
+    &__second {
+      margin-top: 10px;
+    }
+  
+    &__title {
+      font-size: 20px;
+    }
+  
+    &__link {
+      color: wheat;
+      transition: all 0.25s ease-in-out 0s;
+      text-decoration: none;
+    }
+  
+    &__image {
+      height: 45px;
+      background-color: green;
+    }
+  
+    &--active,
+    &:hover {
+      text-decoration: none;
+      color: var(--primary);
+    }
+  }
+  

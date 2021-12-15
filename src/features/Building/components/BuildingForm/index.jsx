@@ -6,17 +6,7 @@ import { Button, FormGroup, Spinner } from "reactstrap";
 import * as Yup from "yup";
 
 function BuildingForm(props) {
-  const initialValues = {
-    name: "",
-    street: "",
-    number: "",
-    code: "",
-    city: "",
-    municipality: "",
-    country: "",
-    description: "",
-    coordinate: "",
-  };
+  const {initialValues, isAddMode} = props;
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("This field is required"),
@@ -107,9 +97,9 @@ function BuildingForm(props) {
             />
 
             <FormGroup>
-              <Button color="primary" type="submit">
+              <Button color="primary" type="submit" color={isAddMode ? "primary" : "success"}>
                 {isSubmitting && <Spinner size="sm" />}
-                Submit
+                {isAddMode ? "Submit" : "Update your building"}
               </Button>
             </FormGroup>
           </Form>

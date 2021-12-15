@@ -13,7 +13,7 @@ const building = createSlice({
       municipality: "aa",
       country: "aa",
       description: "aa",
-      coordinate: [25.521308 ,65.012369],
+      coordinate: [25.521308, 65.012369],
     },
   ],
   reducers: {
@@ -24,9 +24,19 @@ const building = createSlice({
       const removeBuildingId = action.payload;
       return state.filter((building) => building.id !== removeBuildingId);
     },
+    updateBuilding: (state, action) => {
+      const newBuilding = action.payload;
+      const buildingIndex = state.findIndex(
+        (building) => building.id === newBuilding.id
+      );
+
+      if (buildingIndex >= 0) {
+        state[buildingIndex] = newBuilding;
+      }
+    },
   },
 });
 
 const { reducer, actions } = building;
-export const { addBuilding, removeBuilding } = actions;
+export const { addBuilding, removeBuilding, updateBuilding } = actions;
 export default reducer;
