@@ -55,7 +55,10 @@ function BuildingDetail(props) {
                   outline
                   size="sm"
                   color="danger"
-                  onClick={handleRemoveClick}
+                  onClick={() => {
+                    handleRemoveClick()
+                    setSelectedBuilding(null)
+                  }}
                 >
                   Remove
                 </Button>
