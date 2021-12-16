@@ -1,5 +1,4 @@
 import key from "constants/accessToken.json";
-import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import React, { useState } from "react";
 import { BsBuilding } from "react-icons/bs";
@@ -9,7 +8,6 @@ import BuildingDetail from "../BuildingDetail";
 import "./styles.scss";
 
 function BuildingList(props) {
-  mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
   const { buildingList, onBuildingRemoveClick, onBuildingEditClick } = props;
 
   const [viewport, setViewport] = useState({
