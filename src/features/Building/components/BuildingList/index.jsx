@@ -1,5 +1,4 @@
 import key from "constants/accessToken.json";
-import 'mapbox-gl/dist/mapbox-gl.css';
 import React, { useState } from "react";
 import { BsBuilding } from "react-icons/bs";
 import ReactMapGL, { Marker } from "react-map-gl";

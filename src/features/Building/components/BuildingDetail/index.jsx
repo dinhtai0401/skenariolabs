@@ -23,7 +23,7 @@ function BuildingDetail(props) {
           latitude={selectedBuilding.coordinate[1]}
           longitude={selectedBuilding.coordinate[0]}
           closeButton={true}
-          closeOnClick={true}
+          closeOnClick={false}
           onClose={() => setSelectedBuilding(null)}
           anchor="top-right"
         >
