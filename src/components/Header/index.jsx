@@ -5,7 +5,7 @@ import "./Header.scss";
 
 function Header(props) {
   return (
-    <footer className="header">
+    <header className="header">
       <Container>
         <Row className="justify-content-between">
           <Col xs="auto">
@@ -24,11 +24,26 @@ function Header(props) {
           </Col>
 
           <Col xs="auto" className="header__second">
-            <Link to="/" className="header__link header__title" activeclassname="header__link--active">Buidling</Link>
+            <Row xs="auto">
+              <Link
+                to="/"
+                className="header__link header__title"
+                activeclassname="header__link--active"
+              >
+                Buidling
+              </Link>
+              <Link
+                to="/building/table"
+                className="header__link header__title"
+                activeclassname="header__link--active"
+              >
+                Table
+              </Link>
+            </Row>
           </Col>
         </Row>
       </Container>
-    </footer>
+    </header>
   );
 }
 
