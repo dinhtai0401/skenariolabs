@@ -1,71 +1,183 @@
-# Getting Started with Create React App
+# SkenarioLabs
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend assignment: https://affectionate-bassi-1dc9f3.netlify.app/building
 
-## Available Scripts
+## Project Screen
 
-In the project directory, you can run:
+![](public/Capture.PNG)
 
-### `npm start`
+## Setup environment
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Github project: https://github.com/dinhtai0401/skenariolabs
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 1. Setup ReactJS App via Create React App
 
-### `npm test`
+Link: https://create-react-app.dev/docs/getting-started/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Add SCSS support
 
-### `npm run build`
+```js
+npm i --save-dev node-sass
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Add react router 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm i --save react-router-dom
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. Add UI lib
 
-### `npm run eject`
+```
+npm i --save reactstrap
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 5. Add React-Redux React-Toolkit
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm install react-redux reduxjs/toolkit
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 6. Add Formik
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+npm i formik
+```
 
-## Learn More
+### 6. Add Yup
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm i yup
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Organize folders
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+src
+|
+|__app
+|  |__store.js
+|
+|__ assets
+|  |__ images
+|
+|__ components (shared components)
+|
+|__ features
+  |__ Building
+    |__ components
+    |  |__ BuildingDetail
+    |  |__ BuildingForm
+    |  |__ BuidingList
+    |
+    |__ pages
+    |  |__ MainPage
+    |  |__ AddEditPage
+    |__ buildingSlice.js
+    |__ index.js
+```
 
-### Analyzing the Bundle Size
+## Organize routing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Use lazy loading components technique.
+- Load by features.
 
-### Making a Progressive Web App
+```js
+// App.js
+const Building = React.lazy(() => import("./features/Building"));
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+function App() {
+  return (
+    <div className="bulding-app">
+      <Suspense fallback={<div>Loading ...</div>}>
+        <BrowserRouter>
+          <Header />
+          <Switch>
+            <Redirect exact from="/" to="/building" />
 
-### Advanced Configuration
+            <Route path="/building" component={Building} />
+            <Route component={NotFound} />
+          </Switch>
+          <Footer />
+        </BrowserRouter>
+      </Suspense>
+    </div>
+  );
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Custom Field 
 
-### Deployment
+- Bridge between UI control and Formik.
+- UI control is a controlled component with props:
+   - name: the name that identifies the control
+   - value: value of control
+   - onChange: trigger this function with a new value when there is a change
+   - onBlur: determine when this control is touched
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```js
+function InputField(props) {
+  const { field, form, type, label, placeholder, disabled } = props;
+  const { name } = field;
+  const { errors, touched } = form;
+  const showError = errors[name] && touched[name];
 
-### `npm run build` fails to minify
+  return (
+    <div>
+      <FormGroup>
+        {label && <Label for={name}>{label}</Label>}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# skenariolabs" 
+        <Input
+          id={name}
+          {...field}
+          type={type}
+          disabled={disabled}
+          placeholder={placeholder}
+          invalid={showError}
+        />
+      </FormGroup>
+
+      <ErrorMessage
+        className="invalid-feedback d-block"
+        name={name}
+        component={FormFeedback}
+      />
+    </div>
+  );
+}
+```
+
+## Random Photo control
+
+Coordinate
+Props
+  - name
+  - coordinate 
+  - onCoordinateChange 
+  - onGetCoordinateButtonBlur
+
+CoordinateField
+
+Formik
+
+Yup
+
+### Usage
+
+- Installing and starting
+
+```
+git clone https://github.com/dinhtai0401/skenariolabs.git
+npm install - to install all needed packages
+npm start  - to run the application
+```
+
+- Running tests
+
+```
+npm run test
+```
+
+## Commits
+
+List of commits can be found in gitLog.txt
