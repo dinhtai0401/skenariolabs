@@ -53,6 +53,7 @@ npm i yup
 
 ## Organize folders
 
+```
 src
 |
 |__app
@@ -147,7 +148,7 @@ function InputField(props) {
 }
 ```
 
-## Random Photo control
+## Coordinate control
 
 Coordinate
 Props
@@ -162,7 +163,7 @@ Formik
 
 Yup
 
-### Usage
+## Usage
 
 - Installing and starting
 
