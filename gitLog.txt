@@ -1,0 +1,131 @@
+commit 6e9be580070abf2dd1456bc1f11cc2a21eb62f45
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Thu Dec 16 21:57:17 2021 +0200
+
+    changed to false to onClose on map
+
+commit 2820265e1bb19f47cc99f6c8f478f26f51944c8e
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Thu Dec 16 21:47:30 2021 +0200
+
+    added redirect to html
+
+commit fd81f042ab439fe42f4f501c0614a35011952216
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Thu Dec 16 21:34:27 2021 +0200
+
+    change router to fit with production
+
+commit 909d6a0fe7e50fa6421f0825ea5772d989473ea4
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Thu Dec 16 21:28:57 2021 +0200
+
+    used another version for map-gl
+
+commit 073359f9f9f1234ce0f679eb806f81f8b7e23ff3
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Thu Dec 16 21:06:48 2021 +0200
+
+    fixed display map on deploy
+
+commit 034e476623b76b24fef7f1a2f6dfcd8453df3302
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Thu Dec 16 20:44:57 2021 +0200
+
+    removed building after clicking button remove from map
+
+commit b5d8419031cd7925370ed1aadf62b6ff8d69d711
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Thu Dec 16 17:20:04 2021 +0200
+
+    removed manicipality from schema
+
+commit b7c3ca277e6716de41e981b561333dba0ff93acf
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Thu Dec 16 17:15:29 2021 +0200
+
+    trigger values auto fetch coordinates from API
+
+commit 9e9df3d775cc5f39114d8294ebd342ef8692400f
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Thu Dec 16 04:43:59 2021 +0200
+
+    removed console.log and added tests for redux
+
+commit 8fe31e9b458f109cdbe8f986262a3db0f9762561
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Thu Dec 16 00:19:47 2021 +0200
+
+    add link css to mapbox
+
+commit d4373bd2a6c9e444a2b6ac02f680c28579d3fb4c
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Thu Dec 16 00:08:17 2021 +0200
+
+    stored access_token to constants folder
+
+commit e614b8f24bbcc3cf72c553c4a31697439a33191d
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Wed Dec 15 23:38:57 2021 +0200
+
+    re-designed feauters components
+
+commit c4a3ff7c4a10741f4730ba63616b3037b25fd15c
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Wed Dec 15 23:03:31 2021 +0200
+
+    Add PopUp to see all buildings on the map
+
+commit bd7d5c90c9281246440ca0ab7d21b048d6c9baec
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Wed Dec 15 06:32:45 2021 +0200
+
+    Implement edit and remove photo
+
+commit 4526af953708d456151a72624cd4824209e7b1c6
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Wed Dec 15 05:28:26 2021 +0200
+
+    Set initial state in reducer instead of store and Handle edit, remove click
+
+commit 79a68694a69063cbb73e5fea348208232a721593
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Tue Dec 14 22:26:57 2021 +0200
+
+    fix typo and setup redux toolkit
+
+commit 4e6c48ee826e837efde0f813a09d59c69851ba97
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Tue Dec 14 21:32:32 2021 +0200
+
+    Form validation with Yup
+
+commit ca732a572004aaf05c2760fe31e032b54828a28c
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Tue Dec 14 07:14:01 2021 +0200
+
+    Add formilk
+
+commit 1e155bc3b9d664567b734bafa21a083c8f29df5e
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Mon Dec 13 20:53:28 2021 +0200
+
+    add jsconfig.json
+
+commit 99bdbf9dc3f43dc17643c36642fed2544b4ac4b0
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Mon Dec 13 20:06:15 2021 +0200
+
+    set up reactstrap-ui
+
+commit b62b8b220622c27260da545172dc98bf52281b41
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Mon Dec 13 05:42:15 2021 +0200
+
+    Setup project:
+
+commit d4014bb81017911ef8d165657a300634666ea64d
+Author: dinhtai0401 <dinhtai040197@gmail.com>
+Date:   Sat Dec 11 21:57:10 2021 +0200
+
+    Initialize project using Create React App
