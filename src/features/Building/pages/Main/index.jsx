@@ -14,13 +14,11 @@ function MainPage(props) {
   const history = useHistory();
 
   const handleBuildingEditClick = (building) => {
-    console.log("Edit", building);
     const editBuilding = `/building/${building.id}`;
-    history.push(editBuilding)
+    history.push(editBuilding);
   };
 
   const handleBuildingRemoveClick = (building) => {
-    console.log("Remove", building);
     const removeBuildingId = building.id;
     const action = removeBuilding(removeBuildingId);
     dispatch(action);

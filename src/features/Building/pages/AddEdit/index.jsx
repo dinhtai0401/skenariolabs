@@ -33,7 +33,6 @@ function AddEditPage(props) {
 
   const handleSubmit = (values) => {
     return new Promise((resolve) => {
-      console.log(values);
 
       setTimeout(() => {
         if (isAddMode) {
@@ -42,7 +41,6 @@ function AddEditPage(props) {
             id: randomNumber(10000, 99999),
           };
           const action = addBuilding(newBuilding);
-          console.log(action);
           dispatch(action);
 
           resolve(true);

@@ -37,7 +37,7 @@ function BuildingDetail(props) {
             <p>Postal code: {selectedBuilding.code}</p>
             <p>City: {selectedBuilding.city}</p>
             <p>Municipality: {selectedBuilding.municipality}</p>
-            <p>Country: {selectedBuilding.municipality}</p>
+            <p>Country: {selectedBuilding.country}</p>
             <p>Description: {selectedBuilding.description}</p>
             <div className="building-detail__actions">
               <div>
