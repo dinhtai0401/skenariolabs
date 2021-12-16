@@ -1,9 +1,9 @@
 import React, { Suspense } from "react";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import "./App.scss";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
+import Footer from "./components/Footer";
 
 const Building = React.lazy(() => import("./features/Building"));
 
@@ -14,7 +14,9 @@ function App() {
         <BrowserRouter>
           <Header />
           <Switch>
-            <Route path="/" component={Building} />
+            <Redirect exact from="/" to="/building" />
+
+            <Route path="/building" component={Building} />
             <Route component={NotFound} />
           </Switch>
           <Footer />

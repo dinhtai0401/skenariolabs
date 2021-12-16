@@ -6,6 +6,7 @@ import MainPage from "./pages/Main";
 
 function Building(props) {
   const match = useRouteMatch();
+  console.log(match);
 
   return (
     <Switch>
