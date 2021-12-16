@@ -5,7 +5,7 @@ import { FormFeedback, FormGroup, Label } from "reactstrap";
 
 function CoordinateField(props) {
   const { field, form, label } = props;
-  const { name, value, onBlur } = field;
+  const { name, value } = field;
   const { errors, touched } = form;
   const showError = errors[name] && touched[name];
 
@@ -22,10 +22,9 @@ function CoordinateField(props) {
           name={name}
           coordinate={value}
           onCoordinateChange={handleCoordinateChange}
-          onCoordinateButtonBlur={onBlur}
         />
 
-        <div className={showError ? "is-invalid" : ""}/>
+        <div className={showError ? "is-invalid" : ""} />
         <ErrorMessage
           className="invalid-feedback d-block"
           name={name}

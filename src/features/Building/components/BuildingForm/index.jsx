@@ -15,7 +15,8 @@ function BuildingForm(props) {
     code: Yup.string().required("This field is required"),
     city: Yup.string().required("This field is required"),
     country: Yup.string().required("This field is required"),
-    coordinate: Yup.array().min(1),
+    municipality: Yup.string().required("This field is required"),
+    coordinate: Yup.array().min(1).nullable().required(),
   });
 
   return (
