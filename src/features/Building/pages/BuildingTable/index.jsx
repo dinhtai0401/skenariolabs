@@ -45,7 +45,7 @@ function TablePage(props) {
           </thead>
           <tbody>
           {buildings.map((building) => (
-            <tr>
+            <tr key={building.id}>
               <td>{building.name}</td>
               <td>{building.street}</td>
               <td>{building.number}</td>
