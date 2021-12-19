@@ -26,7 +26,7 @@ function TablePage(props) {
     <div className="building-table">
       <Banner title="Add new buildings 😎" />
       
-        <Table striped bordered hover className="building-table__table">
+        <Table striped bordered hover className="building-table__table" size="sm" responsive>
           <thead>
             <tr>
               <th>Name of the building</th>
